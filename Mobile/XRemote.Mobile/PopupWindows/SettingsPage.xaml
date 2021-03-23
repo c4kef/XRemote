@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage x:Class="XRemote.Mobile.PopupWindows.SettingsPage"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:images="clr-namespace:XRemote.Mobile.Images;assembly=XRemote.Mobile"
+                 xmlns:rv="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400" DurationOut="300" EasingIn="SinOut" EasingOut="SinIn" HasBackgroundAnimation="False" PositionIn="Center" PositionOut="Center" ScaleIn="1.2" ScaleOut="0.8"/>
+    </pages:PopupPage.Animation>
+
+    <rv:MaterialFrame Padding="10,20" StyleId="4444">
+
+        <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Spacing="10">
+                <Grid x:Name="Header" IsVisible="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout>
+                        <Frame x:Name="ImageFrame" Grid.Row="0" Grid.Column="1"  WidthRequest="70" HeightRequest="70" Padding="0"  VerticalOptions="Start" HorizontalOptions="Center" CornerRadius="40" HasShadow="False" IsClippedToBounds="True">
+                            <Image Source="{images:ImageResource Me.jpg}" />
+                        </Frame>
+                        <Label x:Name="HelloTime" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="20" HorizontalOptions="Center" Style="{StaticResource TextTitle}" Text="Артемий" FontSize="16" TextColor="{DynamicResource DynamicPrimaryOnBackgroundColor}" />
+                    </StackLayout>
+                    <Image Grid.Row="0" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Start" Source="{StaticResource IconBack}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClose"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <Grid x:Name="OptionsList" IsVisible="True" Margin="0,10,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="25" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Row="0"
+                           Grid.Column="1"
+                           Style="{StaticResource ImageApps}"
+                           Source="{StaticResource IconSun}" >
+                        <Image.GestureRecognizers>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Style="{StaticResource LabelApps}"
+                           Text="Погода" />
+
+                    <Image Grid.Row="0"
+                           Grid.Column="2"
+                           Style="{StaticResource ImageApps}"
+                           Source="{StaticResource IconUser}">
+                        <Image.GestureRecognizers>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Grid.Row="1"
+                           Grid.Column="2"
+                           Style="{StaticResource LabelApps}"
+                           Text="Профиль" />
+
+                </Grid>
+
+
+                <pancake:PancakeView x:Name="WeatherPanel" IsVisible="True" CornerRadius="12">
+                    <StackLayout Orientation="Vertical" BackgroundColor="#282828" HeightRequest="100" WidthRequest="120">
+                        <Label HorizontalOptions="Center" Margin="0,5,0,0" VerticalOptions="Center" Style="{StaticResource LabelApps}" FontSize="15" Text="Погода" TextColor="White" />
+                        <Grid Padding="20,15">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="38" />
+                                    <RowDefinition Height="30" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="40" />
+                                </Grid.ColumnDefinitions>
+                                <Entry x:Name="NameCity" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBody}"/>
+                                <ActivityIndicator x:Name="ProcessFindCity" Grid.Row="0" Grid.Column="1" IsRunning="true" IsVisible="False" HeightRequest="60" HorizontalOptions="End">
+                                    <ActivityIndicator.WidthRequest>
+                                        <OnPlatform x:TypeArguments="x:Double" iOS="100" Android="100" WinPhone="400" />
+                                    </ActivityIndicator.WidthRequest>
+                                    <ActivityIndicator.Color>
+                                        <OnPlatform x:TypeArguments="Color" iOS="#2499CE" WinPhone="#2499CE" />
+                                    </ActivityIndicator.Color>
+                                </ActivityIndicator>
+                                <Image x:Name="BtnFindCity" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" Source="{StaticResource IconFind}">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="FindCity"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+                        </Grid>
+                        <Label x:Name="StatusMessage" HorizontalOptions="Center" VerticalOptions="End" Margin="2" Style="{StaticResource TextSubtitleSecondary}" Text="" />
+                    </StackLayout>
+                </pancake:PancakeView>
+            </StackLayout>
+        </ScrollView>
+    </rv:MaterialFrame>
+</pages:PopupPage>

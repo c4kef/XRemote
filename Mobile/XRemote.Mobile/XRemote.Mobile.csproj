@@ -1,0 +1,122 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>D:\Projects\XRemote\Build\Libs\</OutputPath>
+  </PropertyGroup>
+ 
+  <PropertyGroup>
+	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+ 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>D:\Projects\XRemote\Build\Libs\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="App.xaml.cs~RF1d96b5.TMP" />
+    <None Remove="Globals.cs~RF6be4f1e.TMP" />
+    <None Remove="Images\ableton.png" />
+    <None Remove="Images\azure.png" />
+    <None Remove="Images\CPU.png" />
+    <None Remove="Images\dota.png" />
+    <None Remove="Images\duckduckgo.png" />
+    <None Remove="Images\file_gpx.png" />
+    <None Remove="Images\file_mp3.png" />
+    <None Remove="Images\file_pdf.png" />
+    <None Remove="Images\file_word.png" />
+    <None Remove="Images\Info.png" />
+    <None Remove="Images\LoadScreen.png" />
+    <None Remove="Images\Logo.png" />
+    <None Remove="Images\Me.jpg" />
+    <None Remove="Images\Me.png" />
+    <None Remove="Images\PCOffline.png" />
+    <None Remove="Images\PCOnline.png" />
+    <None Remove="Images\PC_Big.png" />
+    <None Remove="Images\piedpiper.png" />
+    <None Remove="Images\powerpoint.png" />
+    <None Remove="Images\ReloadPC.png" />
+    <None Remove="Images\ShutdownPC.png" />
+    <None Remove="Images\slack.png" />
+    <None Remove="Images\SleepPC.png" />
+    <None Remove="Images\visualstudio.png" />
+    <None Remove="Images\winamp.png" />
+    <None Remove="Images\word.png" />
+    <None Remove="Images\xamarin.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\ableton.png" />
+    <EmbeddedResource Include="Images\azure.png" />
+    <EmbeddedResource Include="Images\CPU.png" />
+    <EmbeddedResource Include="Images\apps_light.png" />
+    <EmbeddedResource Include="Images\bg_light.png" />
+    <EmbeddedResource Include="Images\big_windows_light.png" />
+    <EmbeddedResource Include="Images\field_light.png" />
+    <EmbeddedResource Include="Images\info_light.png" />
+    <EmbeddedResource Include="Images\sync_light.png" />
+    <EmbeddedResource Include="Images\window_select_light.png" />
+    <EmbeddedResource Include="Images\dota.png" />
+    <EmbeddedResource Include="Images\duckduckgo.png" />
+    <EmbeddedResource Include="Images\file_gpx.png" />
+    <EmbeddedResource Include="Images\file_mp3.png" />
+    <EmbeddedResource Include="Images\file_pdf.png" />
+    <EmbeddedResource Include="Images\file_word.png" />
+    <EmbeddedResource Include="Images\Info.png" />
+    <EmbeddedResource Include="Images\LoadScreen.png" />
+    <EmbeddedResource Include="Images\Logo.png" />
+    <EmbeddedResource Include="Images\PCOffline.png" />
+    <EmbeddedResource Include="Images\PCOnline.png" />
+    <EmbeddedResource Include="Images\PC_Big.png" />
+    <EmbeddedResource Include="Images\piedpiper.png" />
+    <EmbeddedResource Include="Images\powerpoint.png" />
+    <EmbeddedResource Include="Images\ReloadPC.png" />
+    <EmbeddedResource Include="Images\ShutdownPC.png" />
+    <EmbeddedResource Include="Images\slack.png" />
+    <EmbeddedResource Include="Images\SleepPC.png" />
+    <EmbeddedResource Include="Images\visualstudio.png" />
+    <EmbeddedResource Include="Images\winamp.png" />
+    <EmbeddedResource Include="Images\word.png" />
+    <EmbeddedResource Include="Images\xamarin.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.10" />
+    <PackageReference Include="Sharpnado.TaskMonitor" Version="1.0.2" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.763-beta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Me.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libs\MaterialFrame\MaterialFrame\MaterialFrame.csproj" />
+    <ProjectReference Include="..\..\Libs\OpenWeatherAPI\OpenWeatherAPI.csproj" />
+    <ProjectReference Include="..\..\Libs\XRemote.ShareStructure\XRemote.ShareStructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Network">
+      <HintPath>..\packages\Libs\Network\netstandard2.0\Network.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="PopupWindows\ControlComputer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PopupWindows\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

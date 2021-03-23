@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage x:Class="XRemote.Mobile.PopupWindows.ControlComputer"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:images="clr-namespace:XRemote.Mobile.Images;assembly=XRemote.Mobile"
+                 xmlns:rv="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400" DurationOut="300" EasingIn="SinOut" EasingOut="SinIn" HasBackgroundAnimation="False" PositionIn="Center" PositionOut="Center" ScaleIn="1.2" ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <rv:MaterialFrame Padding="10,20" StyleId="4444">
+        <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Spacing="10">
+                <Grid x:Name="Header" IsVisible="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout>
+                        <Image Grid.Row="0" Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Source="{StaticResource IconDesktop}"/>
+                        <Label Grid.Row="0" Grid.Column="2" VerticalOptions="Start"  HorizontalOptions="Center"  Style="{StaticResource LabelApps}" FontSize="19" Text="Компьютер" TextColor="White" />
+                    </StackLayout>
+                    <Image Grid.Row="0" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Start" Source="{StaticResource IconBack}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClose"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <Grid x:Name="OptionsList" IsVisible="True" Margin="0,-25,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="25" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Row="0"
+                           Grid.Column="0"
+                           Style="{StaticResource ImageApps}"
+                           Source="{StaticResource IconInfo}" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OpenSystemInfo"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Style="{StaticResource LabelApps}"
+                           Text="Информация" />
+
+                    <Image Grid.Row="0"
+                           Grid.Column="1"
+                           Style="{StaticResource ImageApps}"
+                           Source="{StaticResource IconApps}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OpenAppsPanel"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Style="{StaticResource LabelApps}"
+                           Text="Приложения" />
+
+                    <Image Grid.Row="0"
+                           Grid.Column="2"
+                           Style="{StaticResource ImageApps}"
+                           Source="{StaticResource IconPower}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OpenPowerPanel"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Grid.Row="1"
+                           Grid.Column="2"
+                           Style="{StaticResource LabelApps}"
+                           Text="Питание" />
+
+                    <Image Grid.Row="0"
+                           Grid.Column="3"
+                           Style="{StaticResource ImageApps}"
+                           Source="{StaticResource IconSync}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OpenSyncPanel"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Grid.Row="1"
+                           Grid.Column="3"
+                           Style="{StaticResource LabelApps}"
+                           Text="Синхронизация"/>
+
+                </Grid>
+
+
+                <pancake:PancakeView x:Name="SystemInfo" IsVisible="True" CornerRadius="12">
+                    <Grid BackgroundColor="#282828" HeightRequest="230" WidthRequest="320">
+                        <Grid RowSpacing="-10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="20" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource LabelApps}" FontSize="16" Text="Система" TextColor="White" />
+                            <Label Margin="20,0,0,0" Grid.Row="2" Grid.Column="0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontFamily="{StaticResource FontSemiBold}" FontSize="15" Text="OS: " TextColor="White" />
+                                        <Span x:Name="nameOS" Style="{StaticResource TextHour}" FontSize="15" Text="Not found" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Margin="20,0,0,0" Grid.Row="3" Grid.Column="0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontFamily="{StaticResource FontSemiBold}" FontSize="15" Text="Wi-Fi: " TextColor="White" />
+                                        <Span x:Name="nameWiFi" Style="{StaticResource TextHour}" FontSize="15" Text="Not found" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Margin="20,0,0,0" Grid.Row="4" Grid.Column="0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontFamily="{StaticResource FontSemiBold}" FontSize="15" Text="Экран: " TextColor="White" />
+                                        <Span x:Name="sizeScreen" Style="{StaticResource TextHour}" FontSize="15" Text="Not found" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Margin="20,0,0,0" Grid.Row="5" Grid.Column="0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontFamily="{StaticResource FontSemiBold}" FontSize="15" Text="Размер диска: " TextColor="White" />
+                                        <Span x:Name="sizeDisk" Style="{StaticResource TextHour}" FontSize="15" Text="Not found" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Margin="20,0,0,0" Grid.Row="7" Grid.Column="0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontFamily="{StaticResource FontSemiBold}" FontSize="15" Text="CPU: " TextColor="White" />
+                                        <Span x:Name="CPUTemp" Style="{StaticResource TextHour}" FontSize="15" Text="Not found" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Margin="20,0,0,0" Grid.Row="8" Grid.Column="0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontFamily="{StaticResource FontSemiBold}" FontSize="15" Text="GPU: " TextColor="White" />
+                                        <Span x:Name="GPUTemp" Style="{StaticResource TextHour}" FontSize="15" Text="Not found" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                </pancake:PancakeView>
+
+                <pancake:PancakeView x:Name="SyncPanel" IsVisible="True" CornerRadius="12">
+                    <Grid BackgroundColor="#282828" HeightRequest="80" WidthRequest="120">
+                        <Label HorizontalOptions="Center" Margin="0,5,0,0" VerticalOptions="Start" Style="{StaticResource LabelApps}" FontSize="15" Text="Синхронизация" TextColor="White" />
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Margin="-60,0,0,0" Grid.Row="1" VerticalOptions="Center" Grid.Column="0" Style="{StaticResource LabelApps}" FontSize="13" Text="Отправка файла: " TextColor="White" />
+                            <Image Margin="-70,0,0,0" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1" Source="{StaticResource IconSend}"/>
+                        </Grid>
+                    </Grid>
+                </pancake:PancakeView>
+
+                <pancake:PancakeView x:Name="PowerPanel" IsVisible="True" CornerRadius="12">
+                    <Grid BackgroundColor="#282828" HeightRequest="100" WidthRequest="120" ColumnSpacing="-50">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="10" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" Margin="0,5,0,0" VerticalOptions="Start" Style="{StaticResource LabelApps}" FontSize="15" Text="Питание" TextColor="White" />
+
+                        <Image Grid.Row="1"
+                           Grid.Column="0"
+                           Style="{StaticResource ImageApps}"
+                           Source="{StaticResource IconPower}" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Shutdown"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Grid.Row="2"
+                           Grid.Column="0"
+                           Style="{StaticResource LabelApps}"
+                           Text="Отключить" />
+
+                        <Image Grid.Row="1"
+                           Grid.Column="1"
+                           Style="{StaticResource ImageApps}"
+                           Source="{StaticResource IconReload}" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Reload"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Grid.Row="2"
+                           Grid.Column="1"
+                           Style="{StaticResource LabelApps}"
+                           Text="Перезагрузить" />
+
+                        <Image Grid.Row="1"
+                           Grid.Column="2"
+                           Style="{StaticResource ImageApps}"
+                           Source="{StaticResource IconMoon}" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Sleep"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Grid.Row="2"
+                           Grid.Column="2"
+                           Style="{StaticResource LabelApps}"
+                           Text="Гибернация" />
+
+                    </Grid>
+                </pancake:PancakeView>
+
+
+                <pancake:PancakeView x:Name="AppsPanel" IsVisible="True" CornerRadius="12">
+                    <StackLayout x:Name="AppsPanelBG" Orientation="Vertical" BackgroundColor="#282828" HeightRequest="300" WidthRequest="130" Spacing="10">
+                        <Label HorizontalOptions="Center" Margin="0,5,0,0" VerticalOptions="Start" Style="{StaticResource LabelApps}" FontSize="15" Text="Приложения" TextColor="White" />
+                        <Image HorizontalOptions="Center" Source="{StaticResource IconPlus}" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectApp"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <ScrollView Orientation="Vertical">
+                            <StackLayout x:Name="AppsList" Padding="20,5" Spacing="10">
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                </pancake:PancakeView>
+            </StackLayout>
+        </ScrollView>
+    </rv:MaterialFrame>
+</pages:PopupPage>

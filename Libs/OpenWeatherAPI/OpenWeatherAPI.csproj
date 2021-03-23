@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Copyright>Copyright © 2016</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReleaseNotes>Ported to .Net standard 2.0</PackageReleaseNotes>
+    <Version>1.0.1</Version>
+    <Authors>OpenWeatherAPI, swiftyspiffy, Atrejoe</Authors>
+    <Product>.Net client for OpenWeatherAPI</Product>
+    <PackageProjectUrl>https://github.com/swiftyspiffy/OpenWeatherMap-API-CSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/swiftyspiffy/OpenWeatherMap-API-CSharp</RepositoryUrl>
+    <PackageTags>OpenWeatherAPI weather</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <NoWarn />
+    <OutputPath>D:\Projects\XRemote\Build\Libs\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <NoWarn />
+    <OutputPath>D:\Projects\XRemote\Build\Libs\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="API.cs~RF132be9c.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  <PropertyGroup>
+	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+</Project>
